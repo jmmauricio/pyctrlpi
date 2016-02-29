@@ -1,0 +1,43 @@
+#:kivy 1.0.9
+
+<PongGame>:
+    p_sld: p_slider
+    p_val: p_value
+    p_gau: p_gauge
+
+    canvas:
+        Rectangle:
+            pos: self.center_x-5, 0
+            size: 10, self.height
+    
+    Label:
+        id: p_value
+        font_size: 70  
+        center_x: root.width / 4
+        top: root.top - 50
+        text: '0'
+        
+
+    Slider:
+        id: p_slider
+        pos: root.center_x, 0
+        min:-100
+        max: 100 
+        value: 25
+        width: 500
+
+
+    Switch:
+        pos_hint: {'x': 0.360000, 'y': 0.608571}
+        active: True
+
+    Image:
+        source: 'VSC.jpg'
+        pos_hint: {'x': 0.569091, 'y': 0.560000}
+
+    Gauge:
+        id: p_gauge
+        pos_hint: {'x': 0.569091, 'y': 0.560000}
+
+
+
