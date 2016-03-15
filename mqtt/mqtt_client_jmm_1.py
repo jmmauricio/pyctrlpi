@@ -3,6 +3,12 @@
 Created on Sun Feb 21 22:57:04 2016
 
 @author: jmmauricio
+
+
+sudo apt-get install mosquitto
+sudo update-rc.d mosquitto defaults
+sudo /etc/init.d/mosquitto start
+
 """
 
 import paho.mqtt.client as mqtt
@@ -23,16 +29,17 @@ client = mqtt.Client()
 client.on_connect = on_connect
 client.on_message = on_message
 
-client.connect("192.168.2.121", 1883, 60)
+client.connect("192.168.0.193", 1883, 60)
 
 # Blocking call that processes network traffic, dispatches callbacks and
 # handles reconnecting.
 # Other loop*() functions are available that give a threaded interface and a
 # manual interface.
-client.loop_forever()
+#client.loop_forever()
 
-##t_0 = time.time()
-##while True:
-##    t = time.time()-t_0
-##    client.publish("jmm", '{:2.3f}'.format(t))
-##    time.sleep(0.1)
+t_0 = time.time()
+while True:
+    t = time.time()-t_0
+    client.publish("jmm", '{:2.3f}'.format(t))
+    time.sleep(0.01)
+#
