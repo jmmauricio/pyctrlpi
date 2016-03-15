@@ -36,9 +36,3 @@ client.connect("192.168.0.193", 1883, 60)
 # Other loop*() functions are available that give a threaded interface and a
 # manual interface.
 client.loop_forever()
-
-##t_0 = time.time()
-while True:
-    t = time.time()-t_0
-    client.publish("jmm", '{:2.3f}'.format(t))
-    time.sleep(0.1)
